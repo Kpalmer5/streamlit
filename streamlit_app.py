@@ -28,7 +28,9 @@ df.set_index('Order_Date', inplace=True)
 # Here the Grouper is using our newly set index to group by Month ('M')
 sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 
+# Prepare data for the line chart
 chart_data = filtered_data[['Sub_Category', 'Sales']].set_index('Sub_Category')
+# Display the line chart using st.line_chart
 st.line_chart(chart_data, x_label="Sub_Category", y_label="Sales")
 
 st.dataframe(sales_by_month)
