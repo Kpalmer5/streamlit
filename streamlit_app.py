@@ -26,8 +26,7 @@ df["Order_Date"] = pd.to_datetime(df["Order_Date"])
 df.set_index('Order_Date', inplace=True)
 # Here the Grouper is using our newly set index to group by Month ('M')
 sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
-line_chart = alt.Chart(filtered_data).mark_line().encode(x='Sub_Category', y='Sales').interactive()
-st.altair_chart(line_chart, use_container_width=True)
+
 
 st.dataframe(sales_by_month)
 
