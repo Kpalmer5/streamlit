@@ -41,6 +41,7 @@ st.line_chart(
     x="furniture",
     y=["office_supplies", "technology"],
     color=["#FF0000", "#0000FF"],  # Optional
+)
 
 # Here the grouped months are the index and automatically used for the x axis
 st.line_chart(sales_by_month, y="Sales")
