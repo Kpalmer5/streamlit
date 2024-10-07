@@ -19,6 +19,7 @@ st.bar_chart(df, x="Category", y="Sales")
 st.dataframe(df.groupby("Category").sum())
 # Using as_index=False here preserves the Category as a column.  If we exclude that, Category would become the datafram index and we would need to use x=None to tell bar_chart to use the index
 st.bar_chart(df.groupby("Category", as_index=False).sum(), x="Category", y="Sales", color="#04f")
+st.line_chart(chart_data, x_label="Sub_Category", y_label="Sales")
 
 # Aggregating by time
 # Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
@@ -26,7 +27,6 @@ df["Order_Date"] = pd.to_datetime(df["Order_Date"])
 df.set_index('Order_Date', inplace=True)
 # Here the Grouper is using our newly set index to group by Month ('M')
 sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
-st.metric(label, value, delta='total_profit', delta_color="normal", help=overal_margin, label_visibility="visible")
 
 
 st.dataframe(sales_by_month)
