@@ -29,6 +29,12 @@ sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 
 st.dataframe(sales_by_month)
 
+
+col1, col2, col3 = st.columns(3)
+col1.metric("total_sales")
+col2.metric("total_profit")
+col3.metric("overall_profit_margin")
+
 # Here the grouped months are the index and automatically used for the x axis
 st.line_chart(sales_by_month, y="Sales")
 
