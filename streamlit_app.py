@@ -14,6 +14,10 @@ selected_sub_categories = st.multiselect("Select Sub Category", sub_categories)
 
 # This bar chart will not have solid bars--but lines--because the detail data is being graphed independently
 st.bar_chart(df, x="Category", y="Sales")
+col1, col2, col3 = st.columns(3)
+col1.metric("Sales", "741,999.7953")
+col2.metric("Profit", "18,451.2738")
+col3.metric("Profit_margin", "185%")
 
 # Now let's do the same graph where we do the aggregation first in Pandas... (this results in a chart with solid bars)
 st.dataframe(df.groupby("Category").sum())
@@ -30,13 +34,9 @@ sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 st.dataframe(sales_by_month)
 
 
-col1, col2, col3 = st.columns(3)
-col1.metric("total_sales")
-col2.metric("total_profit")
-col3.metric("overall_profit_margin")
-
 # Here the grouped months are the index and automatically used for the x axis
 st.line_chart(sales_by_month, y="Sales")
+
 
 
 st.write("## Your additions")
