@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
+import numpy as np
 
 st.title("Data App Assignment, on Oct 7th")
 
