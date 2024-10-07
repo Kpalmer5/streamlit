@@ -27,7 +27,6 @@ df.set_index('Order_Date', inplace=True)
 # Here the Grouper is using our newly set index to group by Month ('M')
 sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 
-st.metric(label=total_sales, total_profit, overal_profit_marging, value, delta=None, delta_color="normal",
 st.dataframe(sales_by_month)
 
 # Here the grouped months are the index and automatically used for the x axis
