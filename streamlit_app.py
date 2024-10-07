@@ -31,8 +31,6 @@ st.dataframe(sales_by_month)
 
 # Here the grouped months are the index and automatically used for the x axis
 st.line_chart(sales_by_month, y="Sales")
-line_chart = alt.Chart(filtered_data).mark_line().encode(x='Sub_Category', y='Sales').interactive()
-st.altair_chart(line_chart, use_container_width=True)
 
 
 st.write("## Your additions")
